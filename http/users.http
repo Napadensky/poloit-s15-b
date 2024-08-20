@@ -3,8 +3,8 @@ POST http://localhost:5001/api/users
 Content-Type: application/json
 
 {
-  "name": "Juampa Juaren",
-  "mail": "juana@example.com",
+  "name": "Ju Juaren",
+  "mail": "jua@example.com",
   "phone": "1234567891",
   "active": true
 }
