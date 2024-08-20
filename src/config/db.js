@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/PoloIT', {
+    await mongoose.connect('mongodb+srv://poloit:ir3m4PLNnGk8zMB4@cluster0.zbamoe4.mongodb.net/poloIt', {
       useNewUrlParser: true, 
       useUnifiedTopology: true,
     });
