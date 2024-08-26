@@ -1,0 +1,24 @@
+### Crear un nuevo usuario
+POST http://localhost:5001/api/tags
+Content-Type: application/json
+
+{
+  "name": "Java"
+}
+
+### Obtener todos los usuarios
+GET http://localhost:5001/api/tags
+
+### Obtener un usuario por ID
+GET http://localhost:5001/api/tags/66ccfb8ea17a87c52614e4f8
+
+### Actualizar un usuario
+PUT http://localhost:5001/api/tags/66ccfb8ea17a87c52614e4f8
+Content-Type: application/json
+
+{
+  "name": "Mongo DB"
+}
+
+### Eliminar un usuario
+DELETE http://localhost:5001/api/tags/66ccfb8ea17a87c52614e4f8
