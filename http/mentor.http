@@ -1,0 +1,31 @@
+### Crear un nuevo usuario
+POST http://localhost:5001/api/mentors
+Content-Type: application/json
+
+{
+  "name": "Ju Juaren",
+  "img": "https://example.com/profile.jpg",
+  "skills": ["JavaScript", "Node.js", "React"],
+  "active": true
+}
+
+### Obtener todos los usuarios
+GET http://localhost:5001/api/mentors
+
+### Obtener un usuario por ID
+GET http://localhost:5001/api/mentors/66c6597b6cfbbcbcda03a54a
+
+### Actualizar un usuario
+PUT http://localhost:5001/api/mentors/66c6597b6cfbbcbcda03a54a
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "img": "https://example.com/new-profile.jpg",
+  "skills": ["Python", "Django"],
+  "active": false
+}
+
+
+### Eliminar un usuario
+DELETE http://localhost:5001/api/mentors/66c6597b6cfbbcbcda03a54a
