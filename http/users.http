@@ -13,14 +13,14 @@ Content-Type: application/json
 GET http://localhost:5001/api/users
 
 ### Obtener un usuario por ID
-GET http://localhost:5001/api/users/<user_id>
+GET http://localhost:5001/api/users/66c5069c7c0a722c59b1af91
 
 ### Actualizar un usuario
 PUT http://localhost:5001/api/users/<user_id>
 Content-Type: application/json
 
 {
-  "name": "Jane Doe",
+  "name": "Janes Doe",
   "mail": "jane@example.com",
   "phone": "0987654321",
   "active": false
