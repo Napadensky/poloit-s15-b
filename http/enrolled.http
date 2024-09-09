@@ -1,0 +1,33 @@
+### Crear un nuevo usuario
+POST http://localhost:5001/api/enrolled
+Content-Type: application/json
+
+{
+  "name": "Juan Pérez",
+  "mail": "juan.perez@example.com",
+  "phone": "+54 9 11 1234-5678",
+  "active": true,
+  "courses": ["64df45e71c8768a72b5f9a21", "64df45e71c8768a72b5f9a22"]
+}
+
+
+### Obtener todos los usuarios
+GET http://localhost:5001/api/enrolled
+
+### Obtener un usuario por ID
+GET http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
+
+### Actualizar un usuario
+PUT http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
+Content-Type: application/json
+
+{
+  "name": "Juan Sorna",
+  "mail": "juan.sorna@example.com",
+  "phone": "+54 9 11 1234-5678",
+  "active": true,
+  "courses": ["64df45e71c8768a72b5f9a21", "64df45e71c8768a72b5f9a22"]
+}
+
+### Eliminar un usuario
+DELETE http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
