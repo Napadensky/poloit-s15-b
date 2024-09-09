@@ -1,12 +1,22 @@
-### Crear un nuevo usuario
+## PRUEBA REGISTRAR USUARIO
 POST http://localhost:5001/api/users
 Content-Type: application/json
 
 {
-  "name": "Ju Juaren",
-  "mail": "jua@example.com",
-  "phone": "1234567891",
+  "name": "Juanita Leiva",
+  "mail": "LeivaJ@example.com",
+  "phone": "1234967891",
+  "password": "password12390",
   "active": true
+}
+###
+## PRUEBA LOGIN
+POST http://localhost:5001/api/login
+Content-Type: application/json
+
+{
+  "mail": "LeivaJ@example.com",
+  "password": "password12390"
 }
 
 ### Obtener todos los usuarios
@@ -28,3 +38,19 @@ Content-Type: application/json
 
 ### Eliminar un usuario
 DELETE http://localhost:5001/api/users/<user_id>
+
+## PRUEBA REGISTRAR USUARIO
+POST http://localhost:5001/api/users
+Content-Type: application/json
+
+{
+  "name": "Ana Yuan",
+  "mail": "Yuan@example.com",
+  "phone": "1234967891",
+  "password": "password12390",
+  "active": true
+}
+
+### prueba ruta protegida
+GET http://localhost:5001/api/protected
+Authorization: Bearer yourtoken
