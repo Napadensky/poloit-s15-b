@@ -1,0 +1,8 @@
+POST http://localhost:5001/api/sendEmail
+Content-Type: application/json
+
+{
+  "to": "floh.euritmia@gmail.com",
+  "subject": "Prueba de correo desde API",
+  "text": "Este es un correo de prueba enviado desde Postman usando Nodemailer."
+}
