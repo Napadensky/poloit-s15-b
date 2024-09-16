@@ -6,7 +6,7 @@ const enrolledRoutes = require('./routes/enrolledRoutes');
 
 const tagRoutes = require('./routes/tagRoutes');
 const mentorRoutes = require('./routes/mentorRoutes');
-const coursesRoutes = require('./routes/coursesRoutes');
+const projectsRoutes = require('./routes/projectsRoutes');
 const emailRoutes = require('./utils/nodeMailer/emailRoutes');
 
 
@@ -17,7 +17,7 @@ app.use('/api', userRoutes); // Rutas de usuarios
 app.use('/api', enrolledRoutes); // Rutas de usuarios
 app.use('/api', tagRoutes);
 app.use('/api', mentorRoutes);
-app.use('/api/courses', coursesRoutes); //Rutas Cursos
+app.use('/api', projectsRoutes); 
 app.use('/api', emailRoutes);
 
 

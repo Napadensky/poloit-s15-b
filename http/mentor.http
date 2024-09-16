@@ -3,10 +3,11 @@ POST http://localhost:5001/api/mentors
 Content-Type: application/json
 
 {
-  "name": "Ju Juaren",
+  "name": "Murray May",
   "img": "https://example.com/profile.jpg",
   "skills": ["JavaScript", "Node.js", "React"],
-  "active": true
+  "active": true,
+  "role": "Mentor"
 }
 
 ### Obtener todos los usuarios
