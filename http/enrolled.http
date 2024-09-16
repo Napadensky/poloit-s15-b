@@ -1,13 +1,14 @@
-### Crear un nuevo usuario
 POST http://localhost:5001/api/enrolled
 Content-Type: application/json
 
 {
   "name": "Juan Pérez",
+  "dni": "12345678",
   "mail": "juan.perez@example.com",
-  "phone": "+54 9 11 1234-5678",
+  "phone": "+1234567890",
   "active": true,
-  "courses": ["64df45e71c8768a72b5f9a21", "64df45e71c8768a72b5f9a22"]
+  "role": "Frontend", 
+  "projects": ["64f02fcd789a7b00123a45d6"] 
 }
 
 

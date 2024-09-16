@@ -1,0 +1,49 @@
+POST http://localhost:5001/api/projects
+Content-Type: application/json
+
+{
+  "active": true,
+  "description": "Proyecto con horarios",
+  "img": "https://example.com/image.png",
+  "maxStudents": 25,
+  "mentors": [
+    "64f02fcd789a7b00123a45d6",
+    "64f02fcd789a7b00123a45d7"
+  ],
+  "modalidad": "Presencial",
+  "plataforma": "Zoom",
+  "precio": 150,
+  "schedules": [
+    {
+      "startDate": "2024-09-01T09:00:00.000Z",
+      "endDate": "2024-12-01T11:00:00.000Z",
+      "days": ["Lunes", "Miércoles"],
+      "startHour": "09:00",
+      "endHour": "11:00",
+      "duration": 2
+    }
+  ],
+  "students": [],
+  "tag": ["64f02fcd789a7b00123a45e7"],
+  "title": "Curso de programación"
+}
+
+###
+
+GET http://localhost:5001/api/projects
+Content-Type: application/json
+
+
+###
+PUT http://localhost:5001/api/projects/66e871f1716c7b50c2ec47f3
+Content-Type: application/json
+
+{
+  "title": "Polo IT edicion 1"
+}
+
+########
+
+DELETE http://localhost:5001/api/projects/66e85ae6c9bb1dea2a035ad7
+Content-Type: application/json
+
