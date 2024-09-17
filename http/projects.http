@@ -7,7 +7,7 @@ Content-Type: application/json
   "img": "https://example.com/image.png",
   "maxStudents": 25,
   "mentors": [
-    "64f02fcd789a7b00123a45d6",
+    "64f02fcd789a7b00123a45d6"
     "64f02fcd789a7b00123a45d7"
   ],
   "modalidad": "Presencial",
