@@ -1,0 +1,3 @@
+### Crear un squad para un proyecto específico
+POST http://localhost:5001/api/projects/66eb3db45732156fe2a0fafd/squads
+Content-Type: application/json

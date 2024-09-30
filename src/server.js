@@ -4,11 +4,12 @@ const app = express();
 const connectDB = require('./config/db'); // Importa connectDB correctamente
 const userRoutes = require('./routes/userRoutes');
 const enrolledRoutes = require('./routes/enrolledRoutes');
-
 const tagRoutes = require('./routes/tagRoutes');
 const mentorRoutes = require('./routes/mentorRoutes');
 const projectsRoutes = require('./routes/projectsRoutes');
 const emailRoutes = require('./utils/nodeMailer/emailRoutes');
+const squadRoutes = require('./routes/squadRoutes');
+
 
 
 connectDB();
@@ -21,6 +22,7 @@ app.use('/api', tagRoutes);
 app.use('/api', mentorRoutes);
 app.use('/api', projectsRoutes); 
 app.use('/api', emailRoutes);
+app.use('/api', squadRoutes);
 
 
 
