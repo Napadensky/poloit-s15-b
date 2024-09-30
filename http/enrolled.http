@@ -1,22 +1,21 @@
 POST http://localhost:5001/api/enrolled
 Content-Type: application/json
 
-{
-  "name": "Juan Pérez",
-  "dni": "12345678",
-  "mail": "juan.perez@example.com",
-  "phone": "+1234567890",
-  "active": true,
-  "role": "Frontend", 
-  "projects": ["64f02fcd789a7b00123a45d6"] 
-}
-
+  {
+     "name": "Soneta Castro",
+    "dni": "78901234",
+    "mail": "sofia.castro@example.com",
+    "phone": "+1234567896",
+    "active": true,
+    "role": "UX/UI",
+    "projects": ["66eb3db45732156fe2a0fafd"]
+  }
 
 ### Obtener todos los usuarios
 GET http://localhost:5001/api/enrolled
 
 ### Obtener un usuario por ID
-GET http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
+GET http://localhost:5001/api/enrolled/66e87c12716c7b50c2ec4818
 
 ### Actualizar un usuario
 PUT http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
