@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); // Importa cors
 const app = express();
 const connectDB = require('./config/db'); // Importa connectDB correctamente
 const userRoutes = require('./routes/userRoutes');
@@ -13,6 +14,7 @@ const squadRoutes = require('./routes/squadRoutes');
 
 connectDB();
 
+app.use(cors()); // Habilita CORS
 app.use(express.json()); // Para parsear JSON en el cuerpo de las solicitudes
 app.use('/api', userRoutes); // Rutas de usuarios
 app.use('/api', enrolledRoutes); // Rutas de usuarios
