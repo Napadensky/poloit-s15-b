@@ -10,7 +10,7 @@ const projectSchema = new mongoose.Schema({
   mentors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Mentor' }], // 
   modalidad: { type: String, required: true },
   plataforma: { type: String, required: true },
-  precio: { type: Number, required: true },
+  precio: { type: Number },
   schedules: { type: [Schedule], required: true }, // Array para múltiples horarios
   students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Enrolled' }],
   tag: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Tag' }],
