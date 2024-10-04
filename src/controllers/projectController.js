@@ -72,9 +72,8 @@ const Project = require('../models/Projects');
     console.error(error);
     res.status(400).json({ message: 'Error al crear el proyecto', error });
   }
-};*/
-
- exports.createProject = async (req, res) => {
+};
+exports.createProject = async (req, res) => {
   const { active, description, maxStudents, mentors, modalidad, plataforma, precio, schedules, students, tag, title } = req.body;
 
   const newProject = new Project({
@@ -87,6 +86,30 @@ const Project = require('../models/Projects');
       precio,
       schedules: JSON.parse(schedules), // Lo convierto a un obj
       students,
+      tag,
+      title,
+      img: req.file.path, // Almacena la ruta del archivo
+  });
+
+  try {
+      const savedProject = await newProject.save();
+      res.status(201).json(savedProject);
+  } catch (error) {
+      res.status(400).json({ message: "Error al crear el proyecto", error });
+  }
+};*/
+
+ exports.createProject = async (req, res) => {
+  const { active, description, maxStudents, modalidad, plataforma, startDate, endDate, tag, title } = req.body;
+
+  const newProject = new Project({
+      active,
+      description,
+      maxStudents,
+      modalidad,
+      plataforma,
+      startDate,
+      endDate,
       tag,
       title,
       img: req.file.path, // Almacena la ruta del archivo
