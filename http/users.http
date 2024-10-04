@@ -1,0 +1,56 @@
+## PRUEBA REGISTRAR USUARIO
+POST http://localhost:5001/api/users
+Content-Type: application/json
+
+{
+  "name": "Johna Doe",
+  "mail": "johndoeexample.com",
+  "phone": "167890",
+  "password": "o%Qrwurwe1o",
+  "active": true
+}
+###
+## PRUEBA LOGIN
+POST http://localhost:5001/api/login
+Content-Type: application/json
+
+{
+  "mail": "LeivaJ@example.com",
+  "password": "password12390"
+}
+
+### Obtener todos los usuarios
+GET http://localhost:5001/api/users
+
+### Obtener un usuario por ID
+GET http://localhost:5001/api/users/66c5069c7c0a722c59b1af91
+
+### Actualizar un usuario
+PUT http://localhost:5001/api/users/<user_id>
+Content-Type: application/json
+
+{
+  "name": "Janes Doe",
+  "mail": "jane@example.com",
+  "phone": "0987654321",
+  "active": false
+}
+
+### Eliminar un usuario
+DELETE http://localhost:5001/api/users/<user_id>
+
+## PRUEBA REGISTRAR USUARIO
+POST http://localhost:5001/api/users
+Content-Type: application/json
+
+{
+  "name": "Ana Yuan",
+  "mail": "Yuan@example.com",
+  "phone": "1234967891",
+  "password": "password12390",
+  "active": true
+}
+
+### prueba ruta protegida
+GET http://localhost:5001/api/protected
+Authorization: Bearer yourtoken

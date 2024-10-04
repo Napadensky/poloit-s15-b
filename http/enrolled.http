@@ -1,0 +1,33 @@
+POST http://localhost:5001/api/enrolled
+Content-Type: application/json
+
+  {
+     "name": "Soneta Castro",
+    "dni": "78901234",
+    "mail": "sofia.castro@example.com",
+    "phone": "+1234567896",
+    "active": true,
+    "role": "UX/UI",
+    "projects": ["66eb3db45732156fe2a0fafd"]
+  }
+
+### Obtener todos los usuarios
+GET http://localhost:5001/api/enrolled
+
+### Obtener un usuario por ID
+GET http://localhost:5001/api/enrolled/66e87c12716c7b50c2ec4818
+
+### Actualizar un usuario
+PUT http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
+Content-Type: application/json
+
+{
+  "name": "Juan Sorna",
+  "mail": "juan.sorna@example.com",
+  "phone": "+54 9 11 1234-5678",
+  "active": true,
+  "courses": ["64df45e71c8768a72b5f9a21", "64df45e71c8768a72b5f9a22"]
+}
+
+### Eliminar un usuario
+DELETE http://localhost:5001/api/enrolled/66cd062a4b1b07c5cdeeb125
