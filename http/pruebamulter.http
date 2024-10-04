@@ -1,0 +1,24 @@
+POST http://localhost:5001/api/projects
+Content-Type: multipart/form-data
+
+active: true
+description: "Proyecto con horarios"
+img: [archivo de imagen] // Aquí es donde subes tu archivo
+maxStudents: 25
+mentors: ["64f02fcd789a7b00123a45d6", "64f02fcd789a7b00123a45d7"]
+modalidad: "Presencial"
+plataforma: "Zoom"
+precio: 150
+schedules: [
+  {
+    startDate: "2024-09-01T09:00:00.000Z",
+    endDate: "2024-12-01T11:00:00.000Z",
+    days: ["Lunes", "Miércoles"],
+    startHour: "09:00",
+    endHour: "11:00",
+    duration: 2
+  }
+]
+students: []
+tag: ["64f02fcd789a7b00123a45e7"]
+title: "Curso de programación"

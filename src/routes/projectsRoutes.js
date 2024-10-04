@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const projectController = require('../controllers/projectController');
+const upload = require('../../multerConfig'); // Importa la configuración de multer
+
 
 // Crear un nuevo usuario
-router.post('/projects', projectController.createProject);
+router.post('/projects',upload.single('img'), projectController.createProject);
 
 // Leer todos los usuarios
 router.get('/projects', projectController.getAllProjects);
