@@ -14,7 +14,7 @@ router.get('/projects', projectController.getAllProjects);
 router.get('/projects/:id', projectController.getProjectById);
 
 // Actualizar un usuario por ID
-router.put('/projects/:id', projectController.updateProjectById);
+router.put('/projects/:id',upload.single('img'), projectController.updateProjectById);
 
 // Eliminar un usuario por ID
 router.delete('/projects/:id', projectController.deleteProject);
