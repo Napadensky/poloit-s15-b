@@ -3,7 +3,7 @@ POST http://localhost:5001/api/tags
 Content-Type: application/json
 
 {
-  "name": "Java"
+  "name": "Testing QA"
 }
 
 ### Obtener todos los usuarios

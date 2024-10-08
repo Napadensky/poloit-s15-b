@@ -22,7 +22,10 @@ connectDB();
 app.use(cors()); // Habilita CORS
 app.use(express.json()); // Para parsear JSON en el cuerpo de las solicitudes
 app.use(bodyParser.json());
-app.use('/uploads', express.static(path.join(__dirname,'src', 'uploads')));
+app.use(express.urlencoded({extended:true}));
+//app.use('/uploads', express.static(path.join(__dirname,'src', 'uploads')));
+app.use('/api/uploads', express.static(path.join(__dirname, '../uploads')));
+
 
 app.use('/api', userRoutes); // Rutas de usuarios
 app.use('/api', enrolledRoutes); // Rutas de usuarios

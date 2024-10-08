@@ -72,9 +72,8 @@ const Project = require('../models/Projects');
     console.error(error);
     res.status(400).json({ message: 'Error al crear el proyecto', error });
   }
-};*/
-
- exports.createProject = async (req, res) => {
+};
+exports.createProject = async (req, res) => {
   const { active, description, maxStudents, mentors, modalidad, plataforma, precio, schedules, students, tag, title } = req.body;
 
   const newProject = new Project({
@@ -97,6 +96,42 @@ const Project = require('../models/Projects');
       res.status(201).json(savedProject);
   } catch (error) {
       res.status(400).json({ message: "Error al crear el proyecto", error });
+  }
+};*/
+
+exports.createProject = async (req, res) => {
+  let { active, description, maxStudents, modalidad, plataforma, startDate, endDate, tag, title } = req.body;
+  
+  if (typeof tag === "string") { 
+    try {
+       tag = JSON.parse(tag);
+       } catch (error) {
+         console.error("Error al parsear", error)
+          tag = [];
+         }
+         }
+  const relativeImagePath = `/uploads/${req.file.filename}`; // Ajusta según tu estructura
+
+  const newProject = new Project({
+    active,
+    description,
+    maxStudents,
+    modalidad,
+    plataforma,
+    startDate,
+    endDate,
+    tag,
+    title,
+    img: relativeImagePath,
+  });
+
+
+
+  try {
+    const savedProject = await newProject.save();
+    res.status(201).json(savedProject);
+  } catch (error) {
+    res.status(400).json({ message: "Error al crear el proyecto", error });
   }
 };
 
@@ -123,25 +158,69 @@ exports.getProjectById = async (req, res) => {
   }
 };
 
-// Actualizar un usuario por ID
+// Actualizar un proyecto por ID
 exports.updateProjectById = async (req, res) => {
+
+
+
   try {
-    const project = await Project.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!project) {
-      return res.status(404).json({ error: 'Project not found' });
+    const projectId = req.params.id;
+    const updateData = { ...req.body };
+    if (updateData.active) {
+      updateData.active = updateData.active === 'true';
     }
-    res.status(200).json(project);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+    if (updateData.maxStudents) {
+      updateData.maxStudents = Number(updateData.maxStudents);
+    }
+    if (updateData.startDate) {
+      updateData.startDate = new Date(updateData.startDate);
+    }
+    if (updateData.endDate) {
+      updateData.endDate = new Date(updateData.endDate);
+    }
+    if (req.file) {
+      const relativeImagePath = `/uploads/${req.file.filename}`; // Ajusta según tu estructura
+      updateData.img = relativeImagePath; // Asigna la ruta relativa de la imagen
+    }
+
+    if (updateData.tag && typeof updateData.tag === 'string') {
+      updateData.tag = JSON.parse(updateData.tag);
+    }
+
+    if (updateData.mentors === '') {
+      updateData.mentors = [];
+    } else if (updateData.mentors) {
+      updateData.mentors = JSON.parse(updateData.mentors);
+    }
+    if (updateData.students === '') {
+      updateData.students = [];
+    } else if (updateData.students) {
+      updateData.students = JSON.parse(updateData.students);
+    }
+    Object.keys(updateData).forEach(key => {
+      if (updateData[key] === '') {
+        delete updateData[key];
+      }
+    });
+    const updatedProject = await Project.findByIdAndUpdate(projectId, updateData, { new: true, runValidators: true });
+    if (!updatedProject) {
+      return res.status(404).json({ error: 'Proyecto no encontrado' });
+    }
+
+    res.status(200).json(updatedProject);
+  } catch (error) {
+    console.error('Error al actualizar el proyecto:', error);
+    res.status(500).json({ message: 'Error al actualizar el proyecto', error: error.message });
   }
+ 
 };
 
-// Eliminar un curso
+// Eliminar un proyecto
 exports.deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
     if (!project) {
-      return res.status(404).json({ message:'Proyecto no encontrado' });
+      return res.status(404).json({ message: 'Proyecto no encontrado' });
     }
     res.status(200).json({ message: 'Proyecto eliminado exitosamente' });
   } catch (error) {

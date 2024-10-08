@@ -1,10 +1,17 @@
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
+
+// Verifica si la carpeta 'uploads' existe, si no, créala
+const uploadsDir = path.join(__dirname, './uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 // Configuración de almacenamiento
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null,path.join(__dirname, 'src', 'uploads')); // Carpeta imágenes
+    cb(null, uploadsDir); // Carpeta 'uploads' fuera de 'src'
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`); // Nombra el archivo con la fecha actual y el nombre original
@@ -20,7 +27,7 @@ const fileFilter = (req, file, cb) => {
   if (mimetype && extname) {
     return cb(null, true);
   }
-  cb('Error: Se permiten solo imágenes (jpeg, jpg, png)');
+  return cb(new Error('Error: Se permiten solo imágenes (jpeg, jpg, png)')); // Manejo de error
 };
 
 // Crear el middleware de Multer
