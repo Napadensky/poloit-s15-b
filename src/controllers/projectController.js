@@ -110,6 +110,8 @@ exports.createProject = async (req, res) => {
           tag = [];
          }
          }
+  const relativeImagePath = `/uploads/${req.file.filename}`; // Ajusta según tu estructura
+
   const newProject = new Project({
     active,
     description,
@@ -120,7 +122,7 @@ exports.createProject = async (req, res) => {
     endDate,
     tag,
     title,
-    img: req.file.path, // Almacena la ruta del archivo
+    img: relativeImagePath,
   });
 
 
@@ -159,6 +161,8 @@ exports.getProjectById = async (req, res) => {
 // Actualizar un proyecto por ID
 exports.updateProjectById = async (req, res) => {
 
+
+
   try {
     const projectId = req.params.id;
     const updateData = { ...req.body };
@@ -175,10 +179,10 @@ exports.updateProjectById = async (req, res) => {
       updateData.endDate = new Date(updateData.endDate);
     }
     if (req.file) {
-      updateData.img = req.file.path;
+      const relativeImagePath = `/uploads/${req.file.filename}`; // Ajusta según tu estructura
+      updateData.img = relativeImagePath; // Asigna la ruta relativa de la imagen
+    }
 
-      
-    } 
     if (updateData.tag && typeof updateData.tag === 'string') {
       updateData.tag = JSON.parse(updateData.tag);
     }
