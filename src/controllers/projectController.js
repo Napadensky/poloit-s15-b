@@ -116,7 +116,6 @@ exports.createProject = async (req, res) => {
     active,
     description,
     maxStudents,
-    modalidad,
     plataforma,
     startDate,
     endDate,
