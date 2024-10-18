@@ -1,3 +1,13 @@
 ### Crear un squad para un proyecto específico
-POST http://localhost:5001/api/projects/66eb3db45732156fe2a0fafd/squads
+POST http://localhost:5001/api/projects/6705f101af8c7d116a63ae33/squads
 Content-Type: application/json
+
+### Devolver squad
+GET http://localhost:5001/api/squads/6712cdc08242eb0d55d1fd0b
+Content-Type: application/json
+### 
+GET http://localhost:5001/api/squads
+Content-Type: application/json
+
+####
+DELETE http://localhost:5001/api/squads/:id
