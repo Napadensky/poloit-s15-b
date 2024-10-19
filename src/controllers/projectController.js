@@ -100,7 +100,7 @@ exports.createProject = async (req, res) => {
 };*/
 
 exports.createProject = async (req, res) => {
-  let { active, description, maxStudents, modalidad, plataforma, startDate, endDate, tag, title } = req.body;
+  let { active, description, maxStudents, startDate, endDate, tag, title } = req.body;
   
   if (typeof tag === "string") { 
     try {
@@ -116,7 +116,6 @@ exports.createProject = async (req, res) => {
     active,
     description,
     maxStudents,
-    plataforma,
     startDate,
     endDate,
     tag,

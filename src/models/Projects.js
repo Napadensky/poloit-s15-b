@@ -8,7 +8,6 @@ const projectSchema = new mongoose.Schema({
   img: { type: String, required: true },
   maxStudents: { type: Number, required: true },
   mentors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Mentor' }],
-  plataforma: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
   students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Enrolled' }],
