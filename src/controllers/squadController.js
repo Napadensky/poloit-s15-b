@@ -24,7 +24,7 @@ exports.getAllSquads = async (req, res) => {
 
 exports.getSquadById = async (req, res) => {
   try {
-    const squad = await Squad.findById(req.params.id);
+    const squad = await Squad.findById(req.params.id).populate('project qa uxui frontends backends mentor');
     if (!squad) {
       return res.status(404).json({ message: 'Squad no encontrado' });
     }
